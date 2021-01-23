@@ -6,19 +6,18 @@ on:
       - master
 
 jobs:
-  test:
+  deploy-on-openode:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       -
-        name: testing
+        name: deploy
         run: |
-          sudo npm i -g openode
-          whereis openod
-
           export OPENODE_TOKEN="${{ secrets.OPENODE_TOKEN }}"
           export OPENODE_SITE_NAME="${{ secrets.OPENODE_SITE_NAME }}"
 
+          sudo npm i -g openode
+
           openode ci-conf $OPENODE_TOKEN $OPENODE_SITE_NAME
 
-          openode status
+          openode deploy
