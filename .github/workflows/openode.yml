@@ -13,4 +13,11 @@ jobs:
       -
         name: testing
         run: |
-          node -v
+          npm i -g openode
+
+          export OPENODE_TOKEN="${{ secrets.OPENODE_TOKEN }}"
+          export OPENODE_SITE_NAME="${{ secrets.OPENODE_SITE_NAME }}"
+
+          openode ci-conf $OPENODE_TOKEN $OPENODE_SITE_NAME
+
+          openode status
