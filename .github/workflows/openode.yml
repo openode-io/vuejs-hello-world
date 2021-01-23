@@ -13,7 +13,7 @@ jobs:
       -
         name: testing
         run: |
-          npm i -g openode
+          npm i openode
 
           export OPENODE_TOKEN="${{ secrets.OPENODE_TOKEN }}"
           export OPENODE_SITE_NAME="${{ secrets.OPENODE_SITE_NAME }}"
