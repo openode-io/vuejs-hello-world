@@ -13,9 +13,8 @@ jobs:
       -
         name: testing
         run: |
-          npm i openode
-          ls -la
-          ls -la node_modules
+          sudo npm i -g openode
+          whereis openod
 
           export OPENODE_TOKEN="${{ secrets.OPENODE_TOKEN }}"
           export OPENODE_SITE_NAME="${{ secrets.OPENODE_SITE_NAME }}"
